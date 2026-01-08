@@ -1,5 +1,6 @@
 "use client";
 
+import { memo, useCallback, useMemo } from "react";
 import Link from "next/link";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -15,14 +16,15 @@ interface PaginationProps {
 /**
  * Pagination component with URL-based navigation
  * Supports direct URL linking to specific pages
+ * Memoized to prevent unnecessary re-renders
  */
-export function Pagination({
+export const Pagination = memo(function Pagination({
   currentPage,
   totalPages,
   basePath,
 }: PaginationProps) {
-  // Generate page numbers to display
-  const getPageNumbers = (): (number | "ellipsis")[] => {
+  // Memoize page numbers calculation
+  const pageNumbers = useMemo((): (number | "ellipsis")[] => {
     const pages: (number | "ellipsis")[] = [];
     const showEllipsisStart = currentPage > 3;
     const showEllipsisEnd = currentPage < totalPages - 2;
@@ -55,11 +57,12 @@ export function Pagination({
     }
 
     return pages;
-  };
+  }, [currentPage, totalPages]);
 
-  const pageNumbers = getPageNumbers();
-
-  const getPageUrl = (page: number) => `${basePath}?page=${page}`;
+  const getPageUrl = useCallback(
+    (page: number) => `${basePath}?page=${page}`,
+    [basePath]
+  );
 
   return (
     <nav
@@ -140,4 +143,4 @@ export function Pagination({
       </Button>
     </nav>
   );
-}
+});

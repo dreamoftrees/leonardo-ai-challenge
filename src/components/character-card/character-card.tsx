@@ -1,10 +1,17 @@
 "use client";
 
+import { memo } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Card, CardContent } from "@/components/ui/card";
 import type { Character } from "@/graphql/characters";
 import { cn } from "@/lib/utils";
+
+const STATUS_COLORS: Record<Character["status"], string> = {
+  Alive: "bg-green-500",
+  Dead: "bg-red-500",
+  unknown: "bg-gray-500",
+};
 
 interface CharacterCardProps {
   character: Character;
@@ -17,13 +24,14 @@ interface CharacterCardProps {
 /**
  * Displays a character card in the grid
  * Links to the character detail modal
+ * Memoized to prevent unnecessary re-renders in list
  */
-export function CharacterCard({ character, currentPage, priority = false }: CharacterCardProps) {
-  const statusColor = {
-    Alive: "bg-green-500",
-    Dead: "bg-red-500",
-    unknown: "bg-gray-500",
-  }[character.status];
+export const CharacterCard = memo(function CharacterCard({
+  character,
+  currentPage,
+  priority = false,
+}: CharacterCardProps) {
+  const statusColor = STATUS_COLORS[character.status];
 
   // Build the modal URL with page context
   const modalUrl = currentPage
@@ -63,4 +71,4 @@ export function CharacterCard({ character, currentPage, priority = false }: Char
       </Card>
     </Link>
   );
-}
+});
