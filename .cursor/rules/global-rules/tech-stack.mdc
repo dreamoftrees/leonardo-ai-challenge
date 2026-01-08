@@ -1,0 +1,49 @@
+---
+description: Always reference this when working with the project's technology stack. Adhere to the specified version constraints and follow established architectural patterns.
+globs: *.tsx,*.ts,*.mjs
+alwaysApply: false
+---
+# Tech Stack Breakdown
+
+## Frontend Framework
+- **Next.js 16.1** - React framework with server-side rendering capabilities
+- **React 19.2** - UI library for component-based development
+- **TypeScript** - Strongly typed JavaScript superset
+
+## Components
+- **Shadcn/ui** - UI Component library
+- **React Hook Form** - Form validation
+- **Zod** - Client/server validation schemas
+
+## Backend Integration
+- **Apollo client** - API client to consume GraphQL API
+
+## Styling & UI
+- **Tailwind CSS (v4)** - Utility-first CSS framework
+- **tailwind-merge (^3.0.2)** - Utility for merging Tailwind CSS classes
+- **clsx (^2.1.1)** - Utility for conditional class names
+- **class-variance-authority (^0.7.1)** - Component variant management
+
+## Development & Testing
+- **Vitest (^3.0.9)** - Modern testing framework
+  - Unit and integration testing
+  - Watch mode for development (`test:watch`)
+  - Coverage reporting via @vitest/coverage-v8
+  - JSDOM (^26.0.0) for browser environment simulation
+  - Testing utilities:
+    - @testing-library/react (^16.2.0) - React component testing
+    - @testing-library/jest-dom (^6.6.3) - DOM testing assertions
+  - Configuration:
+    - Runs in UTC timezone
+    - Uses @vitejs/plugin-react for React support
+- **Biome (1.9.4)** - Linting and formatting
+
+## Build & Runtime
+- **Node.js 22.x** - JavaScript runtime
+- **pnpm 9.15.5** - Package manager
+- **Turbopack** - Fast bundler (used in development)
+
+## Project Configuration
+- Uses path aliases (as per base rules)
+- Strict TypeScript configuration
+- Component-based architecture

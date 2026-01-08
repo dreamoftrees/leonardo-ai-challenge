@@ -1,0 +1,11 @@
+---
+description: 
+globs: 
+alwaysApply: true
+---
+
+# Base Project Rules
+
+- DO NOT EVER PROVIDE INCOMPLETE CODE
+- DO NOT USE `index.ts` BARREL FILES
+- ALWAYS USE ALIASED IMPORTS - DO NOT USE RELATIVE UNLESS NECESSARY

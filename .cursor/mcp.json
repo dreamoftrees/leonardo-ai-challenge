@@ -1,0 +1,19 @@
+{
+    "mcpServers": {
+        "React Docs": {
+            "url": "https://gitmcp.io/facebook/react"
+        },
+        "Tailwind CSS Docs": {
+            "url": "https://gitmcp.io/tailwindlabs/tailwindcss"
+        },
+        "Next.js Docs": {
+            "url": "https://gitmcp.io/vercel/next.js"
+        },
+        "Apollo Client Docs": {
+            "url": "https://gitmcp.io/apollographql/apollo-client"
+        },
+        "shadcn/ui Docs": {
+            "url": "https://gitmcp.io/shadcn-ui/ui"
+        }
+    }
+}
